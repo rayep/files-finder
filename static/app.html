@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/handlebars.js"></script>
+    <title>Ray File Finder</title>
+</head>
+<body>
+    <h3>Ray's File Finder</h3>
+    <section id="search">
+        <label for="file-name">File Name:</label>
+        <input type="text" placeholder="Search using filename" id="file-name">
+        <button type="button" id="search-button">Search</button>
+    </section>
+    <section id="results">
+    </section>
+    <template id="results-template">
+        {{#if files}}
+            <ol>
+                {{#each files}}
+                    <li>
+                        <a href="{{{path}}}">{{{name}}}</a>
+                    </li>
+                {{/each}}
+            </ol>
+        {{else}}
+            <p>No Files found!</p>
+        {{/if}}
+    </template>
+    <script src="/app.js"></script>
+</body>
+</html>
